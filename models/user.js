@@ -6,12 +6,12 @@ var Schema = mongoose.Schema;
 // Creamos el objeto del esquema y sus atributos
 var UserSchema = Schema({
     name: String,
-    surname: String,
-    nick: String,
+    org: String,
+    country: String,
+    city: String,
     email: String,
     password: String,
-    role: String,
-    image: String
+    role: String
 });
 // Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('User', UserSchema);

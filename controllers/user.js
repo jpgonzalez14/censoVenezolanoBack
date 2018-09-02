@@ -5,6 +5,8 @@ var bcrypt = require('bcrypt-nodejs');
 //models
 var User = require('../models/user');
 
+//jwt service
+var jwt = require('../services/jwt');
 
 //actions
 function prueba(req, res) {
@@ -96,7 +98,12 @@ function login(req, res) {
               });
             } else {
               if (check) {
-                res.status(200).send({user});
+
+                if (params.gettoken) {
+                  res.status(200).send({token: jwt.createToken(user)});
+                } else {
+                  res.status(200).send({user});
+                }
               } else {
                 res.status(404).send({
                   message: 'el usuario no existe o no ha podido iniciar'

@@ -2,7 +2,9 @@ var express = require('express');
 var UserController = require('../controllers/user');
 var router = express.Router();
 
-router.get('/controlador', UserController.prueba);
+var auth = require('../middlewares/authenticated');
+
+router.get('/controlador', auth.ensureAuth, UserController.prueba);
 router.post('/register', UserController.saveUser);
 router.post('/login', UserController.login);
 

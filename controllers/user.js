@@ -10,9 +10,7 @@ var jwt = require('../services/jwt');
 
 //actions
 function prueba(req, res) {
-  res.status(200).send({
-    message: 'probando controlador usuarios y accion prueba'
-  });
+  res.status(200).send({user: req.user});
 }
 
 function saveUser(req, res) {

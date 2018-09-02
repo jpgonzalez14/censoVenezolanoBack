@@ -77,9 +77,10 @@ function login(req, res) {
   //user params
   var params = req.body;
 
-  if (params.email) {
+  if (params.email && params.password) {
 
     var email = params.email;
+    var password = params.password;
 
     User.findOne({email: email.toLowerCase()}, (err,user)=>{
       if (err) {
@@ -88,10 +89,24 @@ function login(req, res) {
         });
       } else {
         if (user) {
-          res.status(200).send({user});
+          bcrypt.compare(password, user.password, (err, check)=>{
+            if (err) {
+              res.status(500).send({
+                message: 'error al hacer login'
+              });
+            } else {
+              if (check) {
+                res.status(200).send({user});
+              } else {
+                res.status(404).send({
+                  message: 'el usuario no existe o no ha podido iniciar'
+                });
+              }
+            }
+          });
         } else {
           res.status(404).send({
-            message: 'el usuario no existe'
+            message: 'el usuario no existe o no ha podido iniciar'
           });
         }
       }

@@ -5,6 +5,8 @@ var router = express.Router();
 var auth = require('../middlewares/authenticated');
 
 router.get('/controlador', auth.ensureAuth, UserController.prueba);
+router.get('/getUsers', UserController.getUsers);
+router.put('/update/:id', auth.ensureAuth, UserController.updateUser);
 router.post('/register', UserController.saveUser);
 router.post('/login', UserController.login);
 

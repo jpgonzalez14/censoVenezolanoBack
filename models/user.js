@@ -9,7 +9,10 @@ var UserSchema = Schema({
     org: String,
     country: String,
     city: String,
-    email: String,
+    email: {
+        type: String,
+        unique: true
+    },
     password: String,
     role: String
 });

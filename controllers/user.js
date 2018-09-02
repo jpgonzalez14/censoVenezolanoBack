@@ -123,9 +123,46 @@ function login(req, res) {
   }
 }
 
+function updateUser(req, res){
+  var id = req.params.id;
+  var update = req.body;
+
+  if(id != req.user.sub){
+    return res.status(500).send({message: 'no tiene permiso para actualizar usuario'});
+  }
+    User.findByIdAndUpdate(id, update,{new:true}, (err, userUpdate)=>{
+      if (err) {
+        res.status(500).send({message: 'error al actualizar usuario'});
+      } else {
+        if (!userUpdate) {
+          res.status(404).send({message: 'no se pudo actualizar el usuario'});
+        } else {
+          res.status(200).send({user: userUpdate});
+        }
+      }
+    });
+}
+
+function getUsers(req, res){
+  User.find({role: 'ROLE_USER'}).exec((err, users)=>{
+    if (err) {
+      res.status(500).send({message: 'error al pedir lista de usuarios'});
+    } else {
+      if (!users) {
+        res.status(404).send({message: 'no hay usuario registrados'});
+
+      } else {
+        res.status(200).send({users});
+      }
+    }
+  });
+}
+
 //export objects
 module.exports = {
   prueba,
   saveUser,
-  login
+  login,
+  updateUser,
+  getUsers
 };

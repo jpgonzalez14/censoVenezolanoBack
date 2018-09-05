@@ -32,7 +32,8 @@ var CensoSchema = Schema({
     fechaIngreso: {
         type: Date,
         required: true
-    }
+    },
+    person: { type: Schema.ObjectId, ref: 'Person' }
 });
 // Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('Censo', CensoSchema);

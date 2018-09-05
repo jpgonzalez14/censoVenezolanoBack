@@ -2,7 +2,6 @@ var express = require('express');
 var CensoController = require('../controllers/censo');
 var router = express.Router();
 
-var auth = require('../middlewares/authenticated');
 
 
 

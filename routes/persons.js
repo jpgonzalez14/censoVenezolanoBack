@@ -4,6 +4,7 @@ var router = express.Router();
 
 var auth = require('../middlewares/authenticated');
 
+router.post('/register', PersonController.savePerson);
 
 
 /* GET users listing. */

@@ -6,10 +6,6 @@ var Person = require('../models/person');
 //jwt service
 var jwt = require('../services/jwt');
 
-//actions
-function prueba(req, res) {
-  res.status(200).send({user: req.user});
-}
 
 function savePerson(req, res) {
   //create object person
@@ -64,7 +60,7 @@ function savePerson(req, res) {
 }
 
 
-function getPersons(req, res){
+/*function getPersons(req, res){
   User.find({role: 'ROLE_USER'}).exec((err, users)=>{
     if (err) {
       res.status(500).send({message: 'error al pedir lista de usuarios'});
@@ -77,7 +73,7 @@ function getPersons(req, res){
       }
     }
   });
-}
+}*/
 
 //export objects
 module.exports = {

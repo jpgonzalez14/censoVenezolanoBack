@@ -7,31 +7,31 @@ var Schema = mongoose.Schema;
 var CensoSchema = Schema({
     edad: {
         type: Number,
-        unique: true
+        required: true
     },
     queHace: {
         type: String,
-        unique: true
+        required: true
     },
     untimoNivelDeEstudio: {
         type: String,
-        unique: true
+        required: true
     },
     profesion: {
         type: String,
-        unique: true
+        required: true
     },
     enfermedadesCronicas: {
         type: String,
-        unique: true
+        required: true
     },
     ingresos: {
         type: Number,
-        unique: true
+        required: true
     },
     fechaIngreso: {
         type: Date,
-        unique: true
+        required: true
     }
 });
 // Exportamos el modelo para usarlo en otros ficheros

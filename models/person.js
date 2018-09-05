@@ -7,10 +7,11 @@ var Schema = mongoose.Schema;
 var PersonSchema = Schema({
     name: {
         type: String,
-        unique: true
+        required: true
     },
     id: {
         type: Number,
+        required: true,
         unique: true
     },
     phone: Number,

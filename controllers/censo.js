@@ -52,5 +52,5 @@ function saveCenso(req, res) {
 
   //export objects
   module.exports = {
-    savePerson
+    saveCenso
   };

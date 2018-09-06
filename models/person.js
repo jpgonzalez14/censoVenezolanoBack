@@ -14,7 +14,7 @@ var PersonSchema = Schema({
         required: true,
         unique: true
     },
-    phone: Number,
+    phone: String,
     email: String
 });
 // Exportamos el modelo para usarlo en otros ficheros

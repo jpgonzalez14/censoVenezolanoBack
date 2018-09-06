@@ -60,22 +60,24 @@ function savePerson(req, res) {
 }
 
 
-/*function getPersons(req, res){
-  User.find({role: 'ROLE_USER'}).exec((err, users)=>{
+function getPersons(req, res){
+  console.log('prueba');
+  Person.find({}).exec((err, persons)=>{
     if (err) {
       res.status(500).send({message: 'error al pedir lista de usuarios'});
     } else {
-      if (!users) {
+      if (!persons) {
         res.status(404).send({message: 'no hay usuario registrados'});
 
       } else {
-        res.status(200).send({users});
+        res.status(200).send({persons});
       }
     }
   });
-}*/
+}
 
 //export objects
 module.exports = {
-  savePerson
+  savePerson,
+  getPersons
 };

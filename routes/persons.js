@@ -1,10 +1,12 @@
 var express = require('express');
 var PersonController = require('../controllers/person');
+var UserController = require('../controllers/user');
 var router = express.Router();
 
 var auth = require('../middlewares/authenticated');
 
 router.post('/register', PersonController.savePerson);
+router.get('/listpersons', PersonController.getPersons);
 
 
 /* GET users listing. */

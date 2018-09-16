@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/censo', CensoController.saveCenso);
-router.get('/listcensos, CensoController.getcensos')
+router.get('/listcensos', CensoController.getcensos)
 
 
 module.exports = router;

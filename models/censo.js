@@ -33,6 +33,14 @@ var CensoSchema = Schema({
         type: Date,
         required: true
     },
+    pais: {
+        type: String,
+        required: true
+    },
+    ciudad: {
+        type: String,
+        required: true
+    },
     person: { type: Schema.ObjectId, ref: 'Person' }
 });
 // Exportamos el modelo para usarlo en otros ficheros

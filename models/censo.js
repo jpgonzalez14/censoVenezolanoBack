@@ -13,7 +13,7 @@ var CensoSchema = Schema({
         type: String,
         required: true
     },
-    untimoNivelDeEstudio: {
+    educacion: {
         type: String,
         required: true
     },
@@ -21,7 +21,7 @@ var CensoSchema = Schema({
         type: String,
         required: true
     },
-    enfermedadesCronicas: {
+    enfermedades: {
         type: String,
         required: true
     },

@@ -38,7 +38,7 @@ function saveCenso(req, res) {
           censo.save((err, censoStored) => {
             if (err) {
               res.status(500).send({
-                message: 'error al guardar el censo\n' + err.message
+                message: 'error al guardar el censo: ' + err.message
               });
             } else {
               if (!censoStored) {

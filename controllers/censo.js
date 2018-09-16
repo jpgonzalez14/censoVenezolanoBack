@@ -89,5 +89,6 @@ function getCensos(req, res){
 
   //export objects
   module.exports = {
-    saveCenso
+    saveCenso,
+    getCensos
   };

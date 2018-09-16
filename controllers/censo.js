@@ -20,7 +20,7 @@ function saveCenso(req, res) {
     } else {
       if (isPerson) {
 
-        if (params.edad && params.queHace && params.educacion && params.profesion && params.enfermedades && params.ingresos && params.fechaIngreso) {
+        if (params.edad && params.queHace && params.educacion && params.profesion && params.enfermedades && params.ingresos && params.fechaIngreso && params.ciudad && params.pais) {
           //asign params to censo object
           censo.edad = params.edad;
           censo.queHace = params.queHace;
@@ -29,6 +29,8 @@ function saveCenso(req, res) {
           censo.enfermedades = params.enfermedades;
           censo.ingresos = params.ingresos;
           censo.fechaIngreso = params.fechaIngreso;
+          censo.pais = params.pais;
+          censo.ciudad = params.ciudad;
           censo.person = isPerson._id;
 
 

@@ -68,6 +68,21 @@ function saveCenso(req, res) {
 
 };
 
+function getCensos(req, res){
+  Censo.find({}).exec((err, censos)=>{
+    if (err) {
+      res.status(500).send({message: 'error al pedir lista de censos'});
+    } else {
+      if (!censos) {
+        res.status(404).send({message: 'no hay censos'});
+
+      } else {
+        res.status(200).send({censos});
+      }
+    }
+  });
+}
+
 
 
 

@@ -94,7 +94,7 @@ function getEstadisticas(req, res){
         res.status(404).send({message: 'no hay censos'});
 
       } else {
-        let estadisticas = filtrarEstadisticas(censos.censos);
+        let estadisticas = filtrarEstadisticas(censos);
         res.status(200).send({estadisticas});
       }
     }

@@ -30,7 +30,7 @@ var CensoSchema = Schema({
         required: true
     },
     fechaIngreso: {
-        type: Date,
+        type: String,
         required: true
     },
     person: { type: Schema.ObjectId, ref: 'Person' }

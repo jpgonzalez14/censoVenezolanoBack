@@ -139,7 +139,7 @@ function filtrarEstadisticas(data) {
     adolescentes: 0,
     adultos: 0,
     viejos: 0,
-  };
+  }
   let educacion = {
     ninguna: 0,
     prescolar: 0,
@@ -147,7 +147,7 @@ function filtrarEstadisticas(data) {
     secundaria: 0,
     bachiller: 0,
     superior: 0
-  };
+  }
   let profesion = {
     ninguna: 0,
     cerrajero: 0,
@@ -165,7 +165,7 @@ function filtrarEstadisticas(data) {
     enfermera: 0,
     educador: 0,
     plomero: 0
-  };
+  }
   let enfermedades = {
     sano: 0,
     diabetes: 0,
@@ -178,7 +178,7 @@ function filtrarEstadisticas(data) {
     motriz: 0,
     mental: 0,
     chagas: 0
-  };
+  }
   let queHace = {
     nada: 0,
     queleimporta: 0,
@@ -190,7 +190,7 @@ function filtrarEstadisticas(data) {
     vendedorinformal: 0,
     llorar: 0,
     acompanante: 0
-  };
+  }
   let pais = {
     colombia: 0,
     ecuador: 0,
@@ -281,7 +281,7 @@ function filtrarEstadisticas(data) {
     septiembre_2018: 0,
     octubre_2018: 0,
     noviembre_2018: 0,
-    diciembre_2018: 0,
+    diciembre_2018: 0
   }
   let ingresos = {
     rango0_49: 0,
@@ -464,20 +464,12 @@ function filtrarEstadisticas(data) {
   return filtro;
 }
 
+// No usar
 function filtrarEstadisticasUbicacion(data, pais, ciudad) {
     if (pais) return filtrarEstadisticas(filtrdata.filter(d => d.pais === pais));
 }
 
-function filtrarCiudad(data, ciudad) {
-  return data.filter(d => d.ciudad === ciudad);
-}
-
-//Filtrar por pais
-function filtrarPais(data, pais) {
-    return data.filter(d => d.pais === pais);
-}
-
-//Filtrar por ciudad
+// No usar
 function filtrarCiudad(data, ciudad) {
   return data.filter(d => d.ciudad === ciudad);
 }

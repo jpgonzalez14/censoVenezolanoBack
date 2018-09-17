@@ -283,6 +283,14 @@ function filtrarEstadisticas(data) {
     noviembre_2018: 0,
     diciembre_2018: 0,
   }
+  let ingresos = {
+    rango0_49: 0,
+    rango50_99: 0,
+    rango100_149: 0,
+    rango150_199: 0,
+    rango200_249: 0,
+    rango250_300: 0
+  }
   // Filtrar
   for(let i=0; i < data.length; i++) {
 
@@ -294,6 +302,7 @@ function filtrarEstadisticas(data) {
     let pPais = data[i].pais;
     let pCiudad = data[i].ciudad;
     let pFechaIngreso = data[i].fechaIngreso;
+    let pIngresos = data[i].ingresos;
 
     if(pEdad < 13) edad.ninos++;
     else if(pEdad < 18) edad.adolescentes++;
@@ -435,6 +444,13 @@ function filtrarEstadisticas(data) {
     else if(pFechaIngreso.startsWith('2018-10')) fechaIngreso.octubre_2018++;   
     else if(pFechaIngreso.startsWith('2018-11')) fechaIngreso.noviembre_2018++;
     else fechaIngreso.diciembre_2018++;
+
+    if(pIngresos < 50) ingresos.rango0_49++;
+    else if(pIngresos < 100) ingresos.rango50_99++;
+    else if(pIngresos < 150) ingresos.rango100_149++;
+    else if(pIngresos < 200) ingresos.rango150_199++;
+    else if(pIngresos < 250) ingresos.rango200_249++;
+    else ingresos.rango250_300++;
   }
   filtro.edad = edad;
   filtro.educacion = educacion;
@@ -444,7 +460,16 @@ function filtrarEstadisticas(data) {
   filtro.pais = pais;
   filtro.ciudad = ciudad;
   filtro.fechaIngreso = fechaIngreso;
+  filtro.ingresos = ingresos;
   return filtro;
+}
+
+function filtrarEstadisticasUbicacion(data, pais, ciudad) {
+    if (pais) return filtrarEstadisticas(filtrdata.filter(d => d.pais === pais));
+}
+
+function filtrarCiudad(data, ciudad) {
+  return data.filter(d => d.ciudad === ciudad);
 }
 
 //Filtrar por pais

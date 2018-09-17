@@ -447,6 +447,16 @@ function filtrarEstadisticas(data) {
   return filtro;
 }
 
+//Filtrar por pais
+function filtrarPais(data, pais) {
+    return data.filter(d => d.pais === pais);
+}
+
+//Filtrar por ciudad
+function filtrarCiudad(data, ciudad) {
+  return data.filter(d => d.ciudad === ciudad);
+}
+
 
   //export objects
   module.exports = {

@@ -30,7 +30,7 @@ ayuda correctamente. Si haces parte de alguna entidad
 [MIT](https://github.com/jpgonzalez14/censoVenezolanoBack/blob/master/LICENSE)
 
 ## SCREENSHOT
-[Screenshot]()
+[Screenshot](https://jpgonzalez14.github.io/p2.png)
 
 ## AUTORES
 [Juan Pablo Gonzalez Peña](https://github.com/jpgonzalez14)

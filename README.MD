@@ -22,6 +22,8 @@ ayuda correctamente. Si haces parte de alguna entidad
 * MongoDB
 * React.js
 * Plotly.js
+* Redux
+* mLab
 
 ## COMO CORRER
 * Requerimientos

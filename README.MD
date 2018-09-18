@@ -24,6 +24,9 @@ ayuda correctamente. Si haces parte de alguna entidad
 * Plotly.js
 
 ## COMO CORRER
+* Requerimientos
+  + Node.js
+  + MongoDB
 * Clonar el proyecto y en la carpeta de este correr `npm install` y luego `npm start`
 
 ## LICENCIA

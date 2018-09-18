@@ -4,12 +4,16 @@ import Plot from 'react-plotly.js';
 
 class GraphQueHace extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let queHace_label = ['Nada','Que le importa','Sobrevivir','Vendedor informal','Pedir dinero','Crimen','Acompañante','Trabajo Formal','Viajar', 'Llorar'];
         let queHace_datos = [datos.queHace.nada, datos.queHace.queleimporta, datos.queHace.sobrevivir, datos.queHace.pedirdinero, datos.queHace.viajar, datos.queHace.crimen, datos.queHace.trabajoformal, datos.queHace.vendedorinformal, datos.queHace.llorar, datos.queHace.acompanante];
+        if(this.mounted) {
+
         this.setState({
           data: [{
             type: 'bar',
@@ -28,10 +32,12 @@ class GraphQueHace extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -54,6 +60,7 @@ class GraphQueHace extends React.Component {
         config: {}
       };
   }
+
 
   render() {
     return (

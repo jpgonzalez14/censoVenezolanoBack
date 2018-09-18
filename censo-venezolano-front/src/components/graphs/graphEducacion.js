@@ -4,12 +4,16 @@ import Plot from 'react-plotly.js';
 
 class GraphEducacion extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let educacion_label = ['Ninguna','Prescolar', 'Primaria', 'Secundaria', 'Bachiller', 'Superior'];
         let educacion_datos = [datos.educacion.ninguna, datos.educacion.prescolar, datos.educacion.primaria, datos.educacion.secundaria, datos.educacion.bachiller, datos.educacion.superior];
+        if(this.mounted) {
+
         this.setState({
           data: [{
             values: educacion_datos,
@@ -23,10 +27,12 @@ class GraphEducacion extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

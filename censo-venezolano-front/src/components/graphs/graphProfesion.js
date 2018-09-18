@@ -4,6 +4,8 @@ import Plot from 'react-plotly.js';
 
 class GraphProfesion extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
@@ -44,6 +46,8 @@ class GraphProfesion extends React.Component {
           datos.profesion.educador,
           datos.profesion.plomero
         ];
+        if(this.mounted) {
+
         this.setState({
           data: [
             {
@@ -63,10 +67,12 @@ class GraphProfesion extends React.Component {
           },
           frames: [],
           config: {}
-        });
+        });}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

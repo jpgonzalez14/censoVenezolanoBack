@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PieGraph from '../graphs/PieGraph';
 import GraphEdad from '../graphs/graphEdad';
 import GraphEducacion from '../graphs/graphEducacion';
 import GraphEnfermedades from '../graphs/graphEnfermedades';

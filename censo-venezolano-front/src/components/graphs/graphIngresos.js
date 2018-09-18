@@ -4,12 +4,14 @@ import Plot from 'react-plotly.js';
 
 class GraphIngresos extends React.Component {
   componentDidMount() {
+    this.mounted = true;
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let ingresos_datos = [datos.ingresos.rango0_49, datos.ingresos.rango50_99, datos.ingresos.rango100_149, datos.ingresos.rango150_199, datos.ingresos.rango200_249, datos.ingresos.rango250_300];
         let ingresos_label = ['0-49 USD','50-99 USD','100-149 USD', '150-199 USD', '200-249 USD', '250-300 USD'];
+        if(this.mounted) {
         this.setState({
           data: [{
             values: ingresos_datos,
@@ -37,10 +39,12 @@ class GraphIngresos extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

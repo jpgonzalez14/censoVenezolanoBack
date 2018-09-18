@@ -4,12 +4,16 @@ import Plot from 'react-plotly.js';
 
 class GraphEnfermedades extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let enfermedadeses_label = ['Sano','Diabetes','Desnutricion','Dengue','Zika','Fractura','Cardiaco','Respiratorio','Motriz', 'Mental', 'Chagas'];
         let enfermedades_datos = [datos.enfermedades.sano, datos.enfermedades.diabetes, datos.enfermedades.desnutricion, datos.enfermedades.dengue, datos.enfermedades.zika, datos.enfermedades.fractura, datos.enfermedades.cardiaco, datos.enfermedades.respiratorio, datos.enfermedades.motriz, datos.enfermedades.mental, datos.enfermedades.chagas];
+        if(this.mounted) {
+
         this.setState({
           data: [{
             x: enfermedadeses_label,
@@ -38,10 +42,12 @@ class GraphEnfermedades extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

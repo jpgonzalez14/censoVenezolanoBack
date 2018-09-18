@@ -4,6 +4,8 @@ import Plot from 'react-plotly.js';
 
 class GraphEdad extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
@@ -15,6 +17,8 @@ class GraphEdad extends React.Component {
           datos.edad.adultos,
           datos.edad.viejos
         ];
+        if(this.mounted) {
+
         this.setState({
           data: [
             {
@@ -31,10 +35,12 @@ class GraphEdad extends React.Component {
           },
           frames: [],
           config: {}
-        });
+        });}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

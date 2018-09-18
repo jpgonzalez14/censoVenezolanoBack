@@ -4,12 +4,15 @@ import Plot from 'react-plotly.js';
 
 class GraphPais extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let pais_label = ['Colombia','Ecuador','Peru','Argentina','Mexico','Chile','Brasil','Bolivia'];
         let pais_datos = [datos.pais.colombia, datos.pais.ecuador, datos.pais.peru, datos.pais.argentina, datos.pais.mexico, datos.pais.chile, datos.pais.brasil, datos.pais.bolivia];
+        if(this.mounted) {
         this.setState({
           data: [{
             type: 'scattergeo',
@@ -45,10 +48,12 @@ class GraphPais extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

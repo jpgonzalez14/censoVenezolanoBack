@@ -3,13 +3,17 @@ import Plot from 'react-plotly.js';
 //import axios from 'axios';
 
 class GraphCiudad extends React.Component {
+
   componentDidMount() {
+    this.mounted = true;
+
     fetch('https://censovenezolanoback.herokuapp.com/censos/estadisticas')
       .then(res => res.json())
       .then(json => {
         let datos = json.estadisticas;
         let ciudad_label = ['Bogota','Medellin','Cucuta','Barranquilla','Cali','Cartagena','Quito','Guayaquil','Cuencua','Santo Domingo', 'Portoviejo','Lima','Cusco', 'Callao','Arequipa','Trujillo','Buenos Aires','Mar del Plata','Cordoba','Rosario','Mendoza','Ciudad de Mexico','Xalapa', 'Veracruz','Guadalajara','Acapulco','Guanajuato','Santiago','Valparaiso','Talca','Viña del Mar','Concepcion','Salvador','Rio de Janeiro','São Paulo','Brasilia','Fortaleza','La Paz','Cochabamba','Santa Cruz','Trinidad', 'San Borja'];
         let ciudad_datos = [datos.ciudad.bogota, datos.ciudad.medellin, datos.ciudad.cucuta, datos.ciudad.barranquilla, datos.ciudad.cali, datos.ciudad.cartagena, datos.ciudad.quito, datos.ciudad.guayaquil, datos.ciudad.cuenca, datos.ciudad.santodomingo, datos.ciudad.portoviejo, datos.ciudad.lima, datos.ciudad.cusco, datos.ciudad.callao, datos.ciudad.arequipa, datos.ciudad.trujillo, datos.ciudad.buenosaires, datos.ciudad.mardelplata, datos.ciudad.cordoba, datos.ciudad.rosario, datos.ciudad.mendoza, datos.ciudad.ciudademexico, datos.ciudad.xalapa, datos.ciudad.veracruz, datos.ciudad.guadalajara, datos.ciudad.acapulco, datos.ciudad.guanajuato, datos.ciudad.santiago, datos.ciudad.valparaiso, datos.ciudad.talca, datos.ciudad.vinadelmar, datos.ciudad.concepcion, datos.ciudad.salvador, datos.ciudad.riodejaneiro,datos.ciudad.saopaulo, datos.ciudad.brasilia, datos.ciudad.fortaleza, datos.ciudad.lapaz, datos.ciudad.cochabamba, datos.ciudad.santacruz, datos.ciudad.trinidad, datos.ciudad.sanborja]
+        if(this.mounted) {
         this.setState({
           data: [{
             type: 'scatter',
@@ -69,10 +73,12 @@ class GraphCiudad extends React.Component {
           },
           frames: [],
           config: {}
-        })
+        })}
       });
   }
-
+  componentWillUnmount(){
+    this.mounted = false;
+  }
   constructor(props) {
     super(props);
     this.state = {

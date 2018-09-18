@@ -35,6 +35,9 @@ app.use('/censos', censosRouter);
     res.sendFile(path.resolve(__dirname, 'censo-venezolano-front', 'build', 'index.html'));
   });
 
+  const port = process.env.PORT || 5000;
+  app.listen(port);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,5 +54,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

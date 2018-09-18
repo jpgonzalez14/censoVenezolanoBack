@@ -16,6 +16,7 @@
 [MIT](https://github.com/jpgonzalez14/censoVenezolanoBack/blob/master/LICENSE)
 
 ## SCREENSHOT
+[Screenshot]()
 
 ## AUTORES
 [Juan Pablo Gonzalez Peña](https://github.com/jpgonzalez14)

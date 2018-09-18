@@ -19,4 +19,5 @@
 
 ## AUTORES
 [Juan Pablo Gonzalez Peña](https://github.com/jpgonzalez14)
+
 [Ricardo Andres Angel Villadiego](https://github.com/rangel10)

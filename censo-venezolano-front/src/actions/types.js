@@ -1,0 +1,4 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const PERSONS_LOADING = 'PERSONS_LOADING';
+export const GET_PERSONS = 'GET_PERSONS';

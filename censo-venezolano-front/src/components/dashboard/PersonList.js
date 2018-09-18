@@ -33,7 +33,7 @@ class PersonList extends React.Component {
         <h2 className="primary-text-color">Lista de personas censadas</h2>
         <p>Aqui podras filtar algunos parametros de la informacion:</p>
         <input
-          class="form-control"
+          className="form-control"
           id="myInput"
           type="text"
           placeholder="Search.."

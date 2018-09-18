@@ -7,11 +7,7 @@ import PersonList from './PersonList';
 import SideMenu from './SideMenu';
 
 class Info extends Component {
-  componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
-      this.props.history.push('/login');
-    }
-  }
+
   render() {
     return (
       <div className="row">
@@ -21,9 +17,6 @@ class Info extends Component {
     );
   }
 }
-SideMenu.propTypes = {
-  auth: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => ({
   auth: state.auth

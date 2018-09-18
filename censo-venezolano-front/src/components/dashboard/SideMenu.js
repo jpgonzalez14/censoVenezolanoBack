@@ -25,7 +25,7 @@ class SideMenu extends Component {
           que necesitamos de tu ayuda para verificar los datos de las personas
           censadas.
         </div>
-        <div class="alert alert-primary" role="alert">
+        <div className="alert alert-primary" role="alert">
           Proximamente tendremos <strong>mas filtros de busqueda.</strong>
         </div>
         <div className="alert alert-danger" role="alert">

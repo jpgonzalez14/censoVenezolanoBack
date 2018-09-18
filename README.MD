@@ -22,8 +22,13 @@ ayuda correctamente. Si haces parte de alguna entidad
 * MongoDB
 * React.js
 * Plotly.js
+* Redux
+* mLab
 
 ## COMO CORRER
+* Requerimientos
+  + Node.js
+  + MongoDB
 * Clonar el proyecto y en la carpeta de este correr `npm install` y luego `npm start`
 
 ## LICENCIA

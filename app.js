@@ -27,6 +27,14 @@ app.use('/users', usersRouter);
 app.use('/persons', personsRouter);
 app.use('/censos', censosRouter);
 
+// Server static assets if in production
+  // Set static folder
+  app.use(express.static('censo-venezolano-front/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'censo-venezolano-front', 'build', 'index.html'));
+  });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

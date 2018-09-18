@@ -13,7 +13,7 @@ class Footer extends Component {
                   Get connected with us on social networks!{' '}
                 </h6>{' '}
               </div>
-
+              {/*Los icones que presentan no tienen ningún link enlazado*/}
               <div className="col-md-6 col-lg-7 text-center text-md-right">
                 <a className="fb-ic">
                   <i className="fab fa-facebook white-text mr-4"> </i>{' '}
